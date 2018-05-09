@@ -1,6 +1,6 @@
 package com.mylifeplannerco.mylifeplanner.Models;
 
-import android.app.PendingIntent;
+import android.content.Intent;
 
 public class Feature {
 
@@ -8,15 +8,14 @@ public class Feature {
     private String mSubTitle;
     private String mDescription;
     private String mActionText;
-    private PendingIntent mIntentAction;
+    private Intent mActionIntent;
 
-    public Feature(String title, String subTitle, String description, String actionText, PendingIntent intentAction){
+    public Feature(String title, String subTitle, String description, String actionText, Intent actionIntent){
         mTitle = title;
         mSubTitle = subTitle;
         mDescription = description;
         mActionText = actionText;
-
-        mIntentAction = intentAction;
+        mActionIntent = actionIntent;
     }
 
     public String getTitle() {
@@ -51,11 +50,11 @@ public class Feature {
         mActionText = actionText;
     }
 
-    public PendingIntent getIntentAction() {
-        return mIntentAction;
+    public Intent getIntentAction() {
+        return mActionIntent;
     }
 
-    public void setIntentAction(PendingIntent intentAction) {
-        mIntentAction = intentAction;
+    public void setIntentAction(Intent intentAction) {
+        mActionIntent = intentAction;
     }
 }

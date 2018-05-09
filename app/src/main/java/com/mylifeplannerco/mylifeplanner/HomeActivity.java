@@ -1,6 +1,5 @@
 package com.mylifeplannerco.mylifeplanner;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -24,10 +23,7 @@ import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-
     @BindView(R.id.features_recycler_view) RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +55,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //Exercise feature action to launch activity from CardView
-        PendingIntent pendingIntent =
-                PendingIntent.getActivity(
-                        this,
-                        1,
-                        new Intent(this, ExerciseActivity.class) ,
-                        PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent exerciseIntent = new Intent(this, ExerciseActivity.class);
 
         List<Feature> features = new ArrayList<>();
-        features.add(new Feature("Exercise", "Push Day", "Your exercise routine for today is Push.", "View Exercise", pendingIntent));
+        features.add(new Feature("Exercise", "Push Day", "Your exercise routine for today is Push.", "View Exercise", exerciseIntent));
 
         mRecyclerView.setAdapter(new FeaturesAdapter(this, features));
     }
