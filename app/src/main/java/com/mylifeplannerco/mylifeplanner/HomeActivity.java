@@ -6,16 +6,26 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.mylifeplannerco.mylifeplanner.Adapters.FeaturesAdapter;
+import com.mylifeplannerco.mylifeplanner.Models.Feature;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-
     @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
+
+    @BindView(R.id.features_recycler_view) RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +34,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         ButterKnife.bind(this);
 
+        //Navigation and toolbar set
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,6 +51,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Feature RecyclerView Setup
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        List<Feature> features = new ArrayList<>();
+
+        features.add(new Feature("Exercise", "Push Day", "Your exercise routine for today is Push.", "View Exercise"));
+
+        mRecyclerView.setAdapter(new FeaturesAdapter(this, features));
     }
 
     @Override
