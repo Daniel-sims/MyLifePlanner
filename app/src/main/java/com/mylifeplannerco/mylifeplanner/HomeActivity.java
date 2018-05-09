@@ -1,5 +1,7 @@
 package com.mylifeplannerco.mylifeplanner;
 
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -56,9 +58,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        List<Feature> features = new ArrayList<>();
+        //Exercise feature action to launch activity from CardView
+        PendingIntent pendingIntent =
+                PendingIntent.getActivity(
+                        this,
+                        1,
+                        new Intent(this, ExerciseActivity.class) ,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
 
-        features.add(new Feature("Exercise", "Push Day", "Your exercise routine for today is Push.", "View Exercise"));
+        List<Feature> features = new ArrayList<>();
+        features.add(new Feature("Exercise", "Push Day", "Your exercise routine for today is Push.", "View Exercise", pendingIntent));
 
         mRecyclerView.setAdapter(new FeaturesAdapter(this, features));
     }

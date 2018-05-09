@@ -1,5 +1,6 @@
 package com.mylifeplannerco.mylifeplanner.Adapters;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class FeaturesAdapter extends RecyclerView.Adapter<FeaturesAdapter.FeaturesViewHolder>{
 
@@ -26,9 +28,20 @@ public class FeaturesAdapter extends RecyclerView.Adapter<FeaturesAdapter.Featur
         @BindView(R.id.feature_description)  TextView description;
         @BindView(R.id.feature_action_text) TextView actionText;
 
+        public PendingIntent mAction;
+
         public FeaturesViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.feature_action_text)
+        public void onActionClicked(View view){
+            try {
+                mAction.send();
+            } catch (Exception e){
+
+            }
         }
     }
 
@@ -50,6 +63,7 @@ public class FeaturesAdapter extends RecyclerView.Adapter<FeaturesAdapter.Featur
         holder.subTitle.setText(feature.getSubTitle());
         holder.description.setText(feature.getDescription());
         holder.actionText.setText(feature.getActionText());
+        holder.mAction = feature.getIntentAction();
     }
 
     @Override
