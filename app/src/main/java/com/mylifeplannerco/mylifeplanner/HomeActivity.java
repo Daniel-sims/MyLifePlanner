@@ -77,9 +77,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.nav_home:
+                startActivity(new Intent(this, HomeActivity.class));
                 break;
 
-            case R.id.nav_gym:
+            case R.id.nav_exercise:
+                startActivity(new Intent(this, ExerciseActivity.class));
                 break;
 
             default:
