@@ -22,8 +22,8 @@
         <activity
             android:name=".ExerciseActivity"
             android:parentActivityName=".HomeActivity"
-            android:label="@string/title_activity_exercise"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_exercise">
+
         </activity>
     </application>
 
