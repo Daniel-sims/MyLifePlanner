@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
+import com.mylifeplannerco.mylifeplanner.Adapters.WorkoutDaysAdapter;
 import com.mylifeplannerco.mylifeplanner.Models.ExerciseRoutine;
 import com.mylifeplannerco.mylifeplanner.Models.WorkoutDay;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ViewRoutineActivity extends AppCompatActivity {
@@ -17,6 +21,9 @@ public class ViewRoutineActivity extends AppCompatActivity {
 
     private long mRoutineId;
     private List<WorkoutDay> mWorkoutDays;
+
+    @BindView(R.id.workout_days_reycler_view)
+    RecyclerView mWorkoutDaysRecyclerView;
 
     public static Intent newViewRoutineIntent(Context context, long routineId){
         Intent intent = new Intent(context, ViewRoutineActivity.class);
@@ -46,5 +53,11 @@ public class ViewRoutineActivity extends AppCompatActivity {
                 mWorkoutDays = routine.getWorkoutDays();
             }
         }
+
+        // WorkoutDays RecyclerView Setup
+        mWorkoutDaysRecyclerView.setHasFixedSize(true);
+        mWorkoutDaysRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mWorkoutDaysRecyclerView.setAdapter(new WorkoutDaysAdapter(this, mWorkoutDays));
     }
 }
