@@ -25,6 +25,19 @@
             android:label="@string/title_activity_exercise">
 
         </activity>
+
+        <activity
+            android:name=".NewRoutineActivity"
+            android:parentActivityName=".ExerciseActivity"
+            android:label="@string/title_new_routine_activity">
+
+        </activity>
+
+        <activity
+            android:name=".ViewRoutineActivity"
+            android:parentActivityName=".ExerciseActivity">
+
+        </activity>
     </application>
 
 </manifest>

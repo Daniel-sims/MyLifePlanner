@@ -13,17 +13,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.mylifeplannerco.mylifeplanner.Adapters.FeaturesAdapter;
-import com.mylifeplannerco.mylifeplanner.Models.Feature;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-    @BindView(R.id.features_recycler_view) RecyclerView mRecyclerView;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+
+    @BindView(R.id.features_recycler_view)
+    RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +53,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //Exercise feature action to launch activity from CardView
-        Intent exerciseIntent = new Intent(this, ExerciseActivity.class);
-
-        List<Feature> features = new ArrayList<>();
-        features.add(new Feature("Exercise", "Push Day", "Your exercise routine for today is Push.", "View Exercise", exerciseIntent));
-
-        mRecyclerView.setAdapter(new FeaturesAdapter(this, features));
+        //Mock Data provider used for now
+        MockDataProvider mockDataProvider = new MockDataProvider(this);
+        mRecyclerView.setAdapter(new FeaturesAdapter(this, mockDataProvider.getFeatures()));
     }
 
     @Override
