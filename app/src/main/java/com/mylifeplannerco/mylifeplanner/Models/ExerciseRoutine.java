@@ -1,16 +1,18 @@
 package com.mylifeplannerco.mylifeplanner.Models;
 
 import java.util.List;
+import java.util.UUID;
 
 public class ExerciseRoutine {
-    private int mRoutineId;
+    private UUID mRoutineId;
+
     private String mRoutineTitle;
     private List<WorkoutDay> mWorkoutDays;
 
-    public ExerciseRoutine(int routineId, String routineTitle, List<WorkoutDay> workoutDays){
+    public ExerciseRoutine(UUID routineId, String routineTitle, List<WorkoutDay> workoutDays){
         mRoutineId = routineId;
-        mRoutineTitle = routineTitle;
 
+        mRoutineTitle = routineTitle;
         mWorkoutDays = workoutDays;
     }
 
@@ -22,11 +24,11 @@ public class ExerciseRoutine {
         mRoutineTitle = routineTitle;
     }
 
-    public int getRoutineId() {
+    public UUID getRoutineId() {
         return mRoutineId;
     }
 
-    public void setRoutineId(int routineId) {
+    public void setRoutineId(UUID routineId) {
         mRoutineId = routineId;
     }
 

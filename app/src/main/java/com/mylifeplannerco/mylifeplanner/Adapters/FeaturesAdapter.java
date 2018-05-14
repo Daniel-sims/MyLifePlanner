@@ -22,16 +22,24 @@ public class FeaturesAdapter extends RecyclerView.Adapter<FeaturesAdapter.Featur
     private List<Feature> mFeatures;
 
     public class FeaturesViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.feature_title) TextView title;
-        @BindView(R.id.feature_sub_title)  TextView subTitle;
-        @BindView(R.id.feature_description)  TextView description;
-        @BindView(R.id.feature_action_text) TextView actionText;
+        @BindView(R.id.feature_title) TextView mTitle;
+        @BindView(R.id.feature_sub_title)  TextView mSubTitle;
+        @BindView(R.id.feature_description)  TextView mDescription;
+        @BindView(R.id.feature_action_text) TextView mActionText;
 
         public Intent mActionIntent;
 
         public FeaturesViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+        }
+
+        public void bind(Feature feature){
+            mTitle.setText(feature.getTitle());
+            mSubTitle.setText(feature.getSubTitle());
+            mDescription.setText(feature.getDescription());
+            mActionText.setText(feature.getActionText());
+            mActionIntent = feature.getIntentAction();
         }
 
         @OnClick(R.id.feature_action_text)
@@ -52,13 +60,7 @@ public class FeaturesAdapter extends RecyclerView.Adapter<FeaturesAdapter.Featur
 
     @Override
     public void onBindViewHolder(FeaturesViewHolder holder, int position) {
-        Feature feature = mFeatures.get(position);
-
-        holder.title.setText(feature.getTitle());
-        holder.subTitle.setText(feature.getSubTitle());
-        holder.description.setText(feature.getDescription());
-        holder.actionText.setText(feature.getActionText());
-        holder.mActionIntent = feature.getIntentAction();
+        holder.bind(mFeatures.get(position));
     }
 
     @Override

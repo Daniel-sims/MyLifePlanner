@@ -27,6 +27,10 @@ public class WorkoutDaysAdapter extends RecyclerView.Adapter<WorkoutDaysAdapter.
             super(view);
             ButterKnife.bind(this, view);
         }
+
+        public void bind(WorkoutDay workoutDay){
+            mWorkoutDayTitle.setText(workoutDay.getWorkoutTitle());
+        }
     }
 
     public WorkoutDaysAdapter(Context context, List<WorkoutDay> workoutDays){
@@ -41,9 +45,7 @@ public class WorkoutDaysAdapter extends RecyclerView.Adapter<WorkoutDaysAdapter.
 
     @Override
     public void onBindViewHolder(WorkoutDaysAdapter.WorkoutDaysViewHolder holder, int position) {
-        WorkoutDay workoutDay = mWorkoutDays.get(position);
-
-        holder.mWorkoutDayTitle.setText(workoutDay.getWorkoutTitle());
+        holder.bind(mWorkoutDays.get(position));
     }
 
     @Override

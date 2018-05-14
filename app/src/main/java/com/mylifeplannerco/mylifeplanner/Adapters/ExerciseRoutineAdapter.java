@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.mylifeplannerco.mylifeplanner.Activities.Exercise.ViewRoutineActivity;
 import com.mylifeplannerco.mylifeplanner.Models.ExerciseRoutine;
 import com.mylifeplannerco.mylifeplanner.R;
-import com.mylifeplannerco.mylifeplanner.ViewRoutineActivity;
 
 import java.util.List;
 
@@ -24,14 +24,18 @@ public class ExerciseRoutineAdapter extends RecyclerView.Adapter<ExerciseRoutine
 
     public class ExerciseRoutineViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.exercise_routine_title)
-        TextView mExerciseRoutineTitle;
+        @BindView(R.id.exercise_routine_title) TextView mExerciseRoutineTitle;
 
         public Intent mViewRoutineIntent;
 
         public ExerciseRoutineViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+        }
+
+        public void bind(ExerciseRoutine exerciseRoutine){
+            mExerciseRoutineTitle.setText(exerciseRoutine.getRoutineTitle());
+            mViewRoutineIntent = ViewRoutineActivity.newViewRoutineIntent(mContext, exerciseRoutine.getRoutineId());
         }
 
         @OnClick()
@@ -52,10 +56,7 @@ public class ExerciseRoutineAdapter extends RecyclerView.Adapter<ExerciseRoutine
 
     @Override
     public void onBindViewHolder(ExerciseRoutineAdapter.ExerciseRoutineViewHolder holder, int position) {
-        ExerciseRoutine exerciseRoutine = mExerciseRoutines.get(position);
-
-        holder.mExerciseRoutineTitle.setText(exerciseRoutine.getRoutineTitle());
-        holder.mViewRoutineIntent = ViewRoutineActivity.newViewRoutineIntent(mContext, exerciseRoutine.getRoutineId());
+        holder.bind(mExerciseRoutines.get(position));
     }
 
     @Override

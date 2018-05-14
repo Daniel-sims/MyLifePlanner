@@ -1,13 +1,17 @@
 package com.mylifeplannerco.mylifeplanner.Models;
 
+import java.util.UUID;
+
 public class Exercise {
+    private UUID mExerciseId;
     private String mExerciseName;
     private String mDescription;
     private long mReps;
     private long mSets;
     private long mRestPeriod;
 
-    public Exercise(String exerciseName, String description, long reps, long sets, long restPeriod) {
+    public Exercise(UUID exerciseId, String exerciseName, String description, long reps, long sets, long restPeriod) {
+        mExerciseId = exerciseId;
         mExerciseName = exerciseName;
         mDescription = description;
         mReps = reps;

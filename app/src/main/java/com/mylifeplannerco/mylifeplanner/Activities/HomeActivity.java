@@ -1,4 +1,4 @@
-package com.mylifeplannerco.mylifeplanner;
+package com.mylifeplannerco.mylifeplanner.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.mylifeplannerco.mylifeplanner.Activities.Exercise.ExerciseActivity;
 import com.mylifeplannerco.mylifeplanner.Adapters.FeaturesAdapter;
+import com.mylifeplannerco.mylifeplanner.DataProvider.MockDataProvider;
+import com.mylifeplannerco.mylifeplanner.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +23,6 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-
     @BindView(R.id.features_recycler_view)
     RecyclerView mRecyclerView;
 
@@ -46,7 +48,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // Feature RecyclerView Setup
@@ -72,7 +74,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.nav_home:
-                startActivity(new Intent(this, HomeActivity.class));
+                startActivity(new Intent(this, com.mylifeplannerco.mylifeplanner.Activities.HomeActivity.class));
                 break;
 
             case R.id.nav_exercise:
