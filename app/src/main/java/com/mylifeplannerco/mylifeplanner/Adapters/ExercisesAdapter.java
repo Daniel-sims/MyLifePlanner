@@ -36,14 +36,12 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.Exer
 
     @Override
     public ExercisesAdapter.ExerciseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ExercisesAdapter.ExerciseViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.workout_day_card, parent, false));
+        return new ExercisesAdapter.ExerciseViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_workout_day, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ExercisesAdapter.ExerciseViewHolder holder, int position) {
-        Exercise exercise = mExericses.get(position);
-
-        holder.bind(exercise);
+        holder.bind(mExericses.get(position));
     }
 
     @Override

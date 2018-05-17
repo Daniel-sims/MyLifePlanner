@@ -51,7 +51,7 @@ public class ExerciseRoutineAdapter extends RecyclerView.Adapter<ExerciseRoutine
 
     @Override
     public ExerciseRoutineAdapter.ExerciseRoutineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ExerciseRoutineAdapter.ExerciseRoutineViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.exercise_routine_card, parent, false));
+        return new ExerciseRoutineAdapter.ExerciseRoutineViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_exercise_routine, parent, false));
     }
 
     @Override

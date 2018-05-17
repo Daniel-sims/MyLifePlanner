@@ -55,7 +55,7 @@ public class FeaturesAdapter extends RecyclerView.Adapter<FeaturesAdapter.Featur
 
     @Override
     public FeaturesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new FeaturesViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.feature_card, parent, false));
+        return new FeaturesViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_feature, parent, false));
     }
 
     @Override

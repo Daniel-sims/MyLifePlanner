@@ -40,7 +40,7 @@ public class WorkoutDaysAdapter extends RecyclerView.Adapter<WorkoutDaysAdapter.
 
     @Override
     public WorkoutDaysAdapter.WorkoutDaysViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new WorkoutDaysAdapter.WorkoutDaysViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.workout_day_card, parent, false));
+        return new WorkoutDaysAdapter.WorkoutDaysViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_workout_day, parent, false));
     }
 
     @Override

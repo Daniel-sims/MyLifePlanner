@@ -24,7 +24,7 @@ public class MockDataProvider {
         List<Feature> features = new ArrayList<>();
 
         Intent exerciseIntent = new Intent(mContext, ExerciseActivity.class);
-        features.add(new Feature("Exercise", "Please do this...", "View your saved exercise routines.", "View Exercise", exerciseIntent));
+        features.add(new Feature("Health And Fitness", "Track your workouts and weight", "Use this to create, follow and track your workouts along with how you’re progressing.", "Go To Health And Fitness", exerciseIntent));
 
         return features;
     }

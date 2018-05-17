@@ -21,7 +21,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="306dp"
             android:padding="8dp">
 
             <TextView
@@ -48,36 +48,36 @@
                 android:id="@+id/feature_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:text="FeatureDescription"
+                card_view:layout_constraintBottom_toTopOf="@+id/feature_action_text"
                 card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/feature_sub_title"/>
+                />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 app:srcCompat="@drawable/ic_menu_exercise"
-                card_view:layout_constraintBottom_toTopOf="@+id/feature_description"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/feature_action_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="13dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
                 android:text="FeatureAction"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimary"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/feature_description"/>
+                card_view:layout_constraintStart_toStartOf="parent"
+                />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
